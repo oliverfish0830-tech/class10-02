@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f7fb">
+  <title>日常行程規劃</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="page-header">
+      <div>
+        <p class="eyebrow">PLAN YOUR DAY</p>
+        <h1>日常行程規劃</h1>
+        <p class="subtitle">把重要的安排與待辦，一次整理好。</p>
+      </div>
+      <div class="today-badge" aria-label="今日日期">
+        <span class="today-label">今天</span>
+        <time id="today-date"></time>
+      </div>
+    </header>
+
+    <section class="summary-grid" aria-label="行程摘要">
+      <article class="summary-card">
+        <span class="summary-icon schedule-icon" aria-hidden="true">▦</span>
+        <div><p>固定行程</p><strong id="schedule-count">3</strong></div>
+      </article>
+      <article class="summary-card">
+        <span class="summary-icon todo-icon" aria-hidden="true">✓</span>
+        <div><p>待辦事項</p><strong id="todo-count">3</strong></div>
+      </article>
+      <article class="summary-card">
+        <span class="summary-icon progress-icon" aria-hidden="true">◎</span>
+        <div><p>已完成</p><strong id="completed-count">0 / 3</strong></div>
+      </article>
+    </section>
+
+    <div class="content-grid">
+      <section class="panel schedule-panel" aria-labelledby="schedule-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">YOUR CALENDAR</p>
+            <h2 id="schedule-heading">固定行程</h2>
+          </div>
+          <span class="section-count">3 個安排</span>
+        </div>
+        <ol class="schedule-list" id="schedule-list"></ol>
+      </section>
+
+      <section class="panel planner-panel" aria-labelledby="planner-heading">
+        <section class="schedule-form-section" aria-labelledby="planner-heading">
+          <div class="section-heading planner-heading">
+            <div>
+              <p class="eyebrow">MAKE IT YOURS</p>
+              <h2 id="planner-heading">規劃新行程</h2>
+            </div>
+            <span class="form-plus" aria-hidden="true">＋</span>
+          </div>
+          <form class="schedule-form" id="schedule-form">
+            <div class="form-heading">
+              <span class="form-plus" aria-hidden="true">＋</span>
+              <div>
+                <h3>新增自訂行程</h3>
+                <p>填寫活動資訊，加入你的行程表。</p>
+              </div>
+            </div>
+            <div class="form-grid">
+              <label class="form-field form-field-wide">
+                <span>活動內容 <span class="required-mark">*</span></span>
+                <input name="title" type="text" maxlength="60" placeholder="例如：和朋友喝咖啡" required>
+              </label>
+              <label class="form-field">
+                <span>日期 <span class="required-mark">*</span></span>
+                <input name="date" type="date" required>
+              </label>
+              <label class="form-field">
+                <span>地點</span>
+                <input name="place" type="text" maxlength="80" placeholder="輸入活動地點">
+              </label>
+              <label class="form-field">
+                <span>開始時間（24 小時制） <span class="required-mark">*</span></span>
+                <input name="time" type="time" min="00:00" max="23:59" step="60" lang="en-GB" aria-describedby="time-format-help" required>
+              </label>
+              <label class="form-field">
+                <span>結束時間（24 小時制） <span class="required-mark">*</span></span>
+                <input name="end" type="time" min="00:00" max="23:59" step="60" lang="en-GB" required>
+              </label>
+              <label class="form-field form-field-wide">
+                <span>活動說明</span>
+                <textarea name="description" rows="2" maxlength="240" placeholder="補充活動內容或需要注意的事項"></textarea>
+              </label>
+            </div>
+            <p class="time-format-help" id="time-format-help">請以 24 小時制選擇時間，例如 14:30。</p>
+            <button class="submit-schedule" type="submit">＋ 加入行程</button>
+            <p class="form-feedback" id="schedule-form-feedback" role="status" aria-live="polite"></p>
+          </form>
+        </section>
+        <aside class="planner-note">
+          <span class="planner-note-icon" aria-hidden="true">✦</span>
+          <p><strong>留點彈性給自己</strong><br>把重要的事安排好，也別忘了留些空白給休息與靈感。</p>
+        </aside>
+      </section>
+
+      <section class="panel todo-panel" aria-labelledby="todo-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">STAY ON TRACK</p>
+            <h2 id="todo-heading">待辦事項</h2>
+          </div>
+          <span class="section-count" id="todo-progress-label">0 / 3 完成</span>
+        </div>
+        <div class="progress-track" role="progressbar" aria-label="待辦完成進度" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+          <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <ul class="todo-list" id="todo-list"></ul>
+        <p class="helper-text">點選待辦項目即可更新完成狀態。</p>
+      </section>
+    </div>
+
+    <footer class="page-footer">好好安排，也記得留一點時間給自己。</footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
