@@ -1,3 +1,17 @@
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/13.4.0/firebase-app.js';
+
+const firebaseConfig = {
+  apiKey: 'AIzaSyDwRC1A_6NHj3APnP3wrRlUPHC3qJkGFqE',
+  authDomain: 'schedule-e9067.firebaseapp.com',
+  projectId: 'schedule-e9067',
+  storageBucket: 'schedule-e9067.firebasestorage.app',
+  messagingSenderId: '632107850522',
+  appId: '1:632107850522:web:ca29e395e7429b9322eaa3',
+  measurementId: 'G-6ZE13QK64H'
+};
+
+export const firebaseApp = initializeApp(firebaseConfig);
+
 const schedules = [
   {
     id: 'morning-meeting', date: '2026-10-17', time: '09:00', end: '10:00',
